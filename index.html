@@ -1,34 +1,3 @@
-<?php
-session_start();
-include_once 'dbconnect.php';
-
-$conn = mysqli_connect("localhost","root","","e-banking");
-
-if(isset($_SESSION['user'])!="")
-{
- header("Location: home.php");
-}
-
-if(isset($_POST['btn-login']))
-{
- $user = mysqli_real_escape_string($conn, $_POST['username']);
- $password = mysqli_real_escape_string($conn, $_POST['password']);
- $res=mysqli_query($conn, "SELECT * FROM login WHERE username='$user'");
- $row=mysqli_fetch_array($res);
- if($row['password']==md5($password))
- {
-  $_SESSION['user'] = $row['username'];
-  header("Location: home.php");
- }
- else
- {
-  ?>
-        <script>alert('please enter your valid username and password.');</script>
-        <?php
- }
- 
-}
-?>
 
 <!DOCTYPE>
 <html>
