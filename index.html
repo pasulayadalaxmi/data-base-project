@@ -1,92 +1,116 @@
+<?php
+session_start();
+include_once 'dbconnect.php';
 
-<!DOCTYPE>
+$conn = mysqli_connect("localhost","root","","e-banking");
+
+if(!isset($_SESSION['user']))
+{
+ header("Location: index.php");
+}
+echo "hello ";
+echo $_SESSION['user'];
+$user = $_SESSION['user'];
+
+
+
+?>
+
+<!Doctype>
 <html>
 	<head>
-		<title>LOGIN PAGE</title>
+		<title>CUSTOMER PAGE</title>
+		<link rel="stylesheet" type="text/css" href="customer.css">
 		
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="login_main.css">
-    <script src="login.js"></script>
 	</head>
 
-	<body>
-
-  <div id="bg">
-	  <img src="images/b32.jpg" alt="">
-  </div>
-
-      <nav class="upar" style=" height:60px; ;background: rgba(3,3,3,0.6); position: fixed; " >
-
-            <link rel="stylesheet" type="text/css" href="upper.css">    
-            <link rel="stylesheet" type="text/css" href="login_main.css">
-
-            <li id="test" style="font: message-box; font-family:'Verdana',monospace; font-size: 20px; margin: 22px;">SAFE AND SECURE BANKING</li>
-            
-            <ul>
-            <li><a href="index.php" class="current"><span data-title="Home">Home </a></li>
-            <li><a href="features.php">Features </a></li> 
-            <li><a href="#about">About</a></li>
-            <li><a href="safe-banking.php">Safe-banking</a></li>
-            <li><a href="contact.php">Contact Us</a></li>
-            
-            </ul>
-      </nav>
-          
+	<body id="back">
 
 	
-	<div class="login_1">
-      <div class="container">
-      
-      	<h1 id="test">Manage all your transactions with a single touch</h1>
-        <h3 id="test2">Switch over to our new E-Banking site, its completely free.!</h3>
+		<div class="login_1">
 
-        <section id="about">
+		<li style="color: white; margin-left:850px; position: absolute; width: 450px; margin-top: 0px;">
+		<p>TIME :</p>
+		<p id="demo"></p></li>
+		<script>document.getElementById("demo").innerHTML = Date();</script>
 
-        <div class="info" style="background: rgba(3,3,3,0.7);">
-            <link rel="stylesheet" type="text/css" href="login_main.css">
-                <h4>READ MORE HERE...</h4>
-                <h3>PERSONAL BANKING</h3>
+			<h3>WELCOME TO MIT E_BANKING!</h3>
+					
+		</div>
+	
+			
+		<hr style="margin-top: 100px; width: 1200px;">
 
-                <hr>
-                
-                    <ul>
-                        <li>Personal Banking application provides features to administer and manage non personal accounts online.</li>
-                        <li>Phishing is a fraudulent attempt, usually made through email, phone calls, SMS etc seeking your personal and confidential information.</li>
-                        <li>Online Bank or any of its representative never sends you email/SMS or calls you over phone to get your personal information, password or one time SMS (high security) password.</li>
-                        <li>Any such e-mail/SMS or phone call is an attempt to fraudulently withdraw money from your account through Internet Banking. Never respond to such email/SMS or phone call. Please report immediately on reportif you receive any such email/SMS or Phone call. Please lock your user access immediately.
-                        </li>
-                    </ul>
-                  
+	<div class="back2back">
 
-        </div>   
+		<link rel="stylesheet" type="text/css" href="customer.css">
+		
+		<div class="sidebar">
+			<link rel="stylesheet" type="text/css" href="customer.css">
+		
+				<ul>
+			
+					<li>
+					<a href="home.php" class="current">HOME</a>	
+					</li>
+					<li>
+					<a href="profile.php">PROFILE</a>	
+					</li>
+					<li>
+					<a href="accounts.php">ACCOUNTS</a>	
+					</li>
+					<li>
+					<a href="settings.php">SETTINGS</a>	
+					</li>
+					<li>
+					<a href="mini_statement.php">HISTORY</a>	
+					</li>
+					<li>
+					<a href="payments.php">PAYMENTS</a>	
+					</li>
+					<li>
+					<a href="todolist.php">TO-DO LIST</a>	
+					</li>
+					<li>
+					<a href="e_services.php">E-SERVICES</a>	
+					</li>
+					<li>
+					<a href="customer_care.php">CUSTOMER CARE</a>	
+					</li>
+					<li>
+					<a href="feedback.php">FEEDBACK</a>	
+					</li>
+					<li>
+					<a href="logout.php?logout">LOGOUT</a>	
+					</li>
+	
+				</ul>
+		</div>
 
-        </section> 
 
+		<div id="nav" class="personal" align="vertical">
+		<link rel="stylesheet" type="text/css" href="profile_main.css">
+		
+			<li><a href="home.php" class="current">Home</a></li>
+			<li><a href="whats-new.php">Whats new?</a></li>
+		
+		</div>
+	
+		<div id="page">
+			<li style="margin-top: 30px;">
+				Hello <?php echo $_SESSION['user']?> ...!
+			</li>
+			<br>
+			<li>
+				we at MIT banking give you a very secure way of organising your accounts.
+				All the latest updates will be posted on the whats-new page at the left.
+				Make sure you change your passcode if it remains same for 180 days.
+			</li>
+			<li style="margin-left: 600px; margin-top: 70px;"> - MANAGER</li>
+		</div>
 
-        <div id="test3">
-            <form method="post">
-              <h3 style="margin-left: 550px; margin-top: 30px;position: absolute;">Login here</h3>
-                  <hr style="color: white; width: 275px;position: absolute;margin-left: 550px;margin-top: 75px;">
-                  <br>
-                  <div class="login">
-                  
-                      <input type="text" placeholder="username" name="username"><br>
-                      <input type="password" placeholder="password" name="password"><br>
-                      <input type="submit" value="Login" name="btn-login">
-           
-                  </div>
+	</div>	
 
-                  <hr style="color: white; width: 275px;position: absolute;margin-left: 550px;margin-top: 215px;">
-            </form>      
-
-              <ol id="extra">
-               <p><a href="REGISTER.php">Click here to register</a></p>
-              </ol>
-            
-  
-        </div> 
-  				
 	</body>
-  
 </html>
 
