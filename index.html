@@ -1,21 +1,3 @@
-<?php
-session_start();
-include_once 'dbconnect.php';
-
-$conn = mysqli_connect("localhost","root","","e-banking");
-
-if(!isset($_SESSION['user']))
-{
- header("Location: index.php");
-}
-echo "hello ";
-echo $_SESSION['user'];
-$user = $_SESSION['user'];
-
-
-
-?>
-
 <!Doctype>
 <html>
 	<head>
@@ -24,24 +6,18 @@ $user = $_SESSION['user'];
 		
 	</head>
 
-	<body id="back">
+	<body bgcolor="#fff" id="back">
 
+	<div id="header">
+		<div align="right"><a href="file:///G:/DBMS_PROJECT/CUSTOMER.html">Home</a> | <a href="#">About us</a> | <a href="#">Contact us</a> 	
+	</div>
+
+	<div class="login_1">
+			<h3>WELCOME TO MIT E_BANKING!</h3>		
+	</div>
 	
-		<div class="login_1">
-
-		<li style="color: white; margin-left:850px; position: absolute; width: 450px; margin-top: 0px;">
-		<p>TIME :</p>
-		<p id="demo"></p></li>
-		<script>document.getElementById("demo").innerHTML = Date();</script>
-
-			<h3>WELCOME TO MIT E_BANKING!</h3>
-					
-		</div>
 	
-			
-		<hr style="margin-top: 100px; width: 1200px;">
-
-	<div class="back2back">
+		<hr style="margin-top: 100px;">
 
 		<link rel="stylesheet" type="text/css" href="customer.css">
 		
@@ -51,66 +27,63 @@ $user = $_SESSION['user'];
 				<ul>
 			
 					<li>
-					<a href="home.php" class="current">HOME</a>	
+					<a href="file:///G:/DBMS_PROJECT/CUSTOMER.html" class="current">HOME</a>	
 					</li>
 					<li>
-					<a href="profile.php">PROFILE</a>	
+					<a href="file:///G:/DBMS_PROJECT/PROFILE.html">PROFILE</a>	
 					</li>
 					<li>
-					<a href="accounts.php">ACCOUNTS</a>	
+					<a href="file:///G:/DBMS_PROJECT/ACCOUNTS.html">ACCOUNTS</a>	
 					</li>
 					<li>
-					<a href="settings.php">SETTINGS</a>	
+					<a href="file:///G:/DBMS_PROJECT/SETTINGS.html">SETTINGS</a>	
 					</li>
 					<li>
-					<a href="mini_statement.php">HISTORY</a>	
+					<a href="file:///G:/DBMS_PROJECT/MINI_STATEMENT.html">HISTORY</a>	
 					</li>
 					<li>
-					<a href="payments.php">PAYMENTS</a>	
+					<a href="file:///G:/DBMS_PROJECT/PAYMENTS.html">PAYMENTS</a>	
 					</li>
 					<li>
-					<a href="todolist.php">TO-DO LIST</a>	
+					<a href="file:///G:/DBMS_PROJECT/E_SERVICES.html">E-SERVICES</a>	
 					</li>
 					<li>
-					<a href="e_services.php">E-SERVICES</a>	
+					<a href="file:///G:/DBMS_PROJECT/CUSTOMER_CARE.html">CUSTOMER CARE</a>	
 					</li>
 					<li>
-					<a href="customer_care.php">CUSTOMER CARE</a>	
+					<a href="file:///G:/DBMS_PROJECT/FEEDBACK.html">FEEDBACK</a>	
 					</li>
 					<li>
-					<a href="feedback.php">FEEDBACK</a>	
-					</li>
-					<li>
-					<a href="logout.php?logout">LOGOUT</a>	
+					<a href="file:///G:/DBMS_PROJECT/LOGIN.html">LOGOUT</a>	
 					</li>
 	
 				</ul>
 		</div>
 
 
+	<section>
 		<div id="nav" class="personal" align="vertical">
 		<link rel="stylesheet" type="text/css" href="profile_main.css">
 		
-			<li><a href="home.php" class="current">Home</a></li>
-			<li><a href="whats-new.php">Whats new?</a></li>
+			<li><a href="file:///G:/DBMS_PROJECT/CUSTOMER.html" class="current">Account summary</a></li>
+			<li><a href="file:///G:/DBMS_PROJECT/WHATS-NEW.html">Whats new?</a></li>
 		
 		</div>
-	
-		<div id="page">
-			<li style="margin-top: 30px;">
-				Hello <?php echo $_SESSION['user']?> ...!
-			</li>
-			<br>
-			<li>
-				we at MIT banking give you a very secure way of organising your accounts.
-				All the latest updates will be posted on the whats-new page at the left.
-				Make sure you change your passcode if it remains same for 180 days.
-			</li>
-			<li style="margin-left: 600px; margin-top: 70px;"> - MANAGER</li>
+	</section>
+
+
+	<section id=band>
+		<div style="position: absolute;margin-left: 170px;margin-top: 60px; width: 1250px;">
+			<strong style="margin-left: 60px; margin-top: 110px;">Account number</strong>
+			<strong style="margin-left: 60px; margin-top: 110px;">Account type</strong>
+			<strong style="margin-left: 60px; margin-top: 110px;">Account branch</strong>
+			<strong style="margin-left: 60px; margin-top: 110px;">Balance amount</strong>
+
+			<hr style="margin-left: 60px; width: 800px;">
+
 		</div>
-
-	</div>	
-
+	</section>
+		
+		
 	</body>
 </html>
-
